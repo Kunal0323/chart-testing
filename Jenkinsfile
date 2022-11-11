@@ -1,16 +1,9 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
-
-  }
+  agent any
   stages {
-    stage('build') {
+    stage('checkout code') {
       steps {
-        sh '''#!/bin/sh
-
-echo hello'''
+        git(url: 'https://github.com/Kunal0323/helm-test.git', branch: 'branch')
       }
     }
 
